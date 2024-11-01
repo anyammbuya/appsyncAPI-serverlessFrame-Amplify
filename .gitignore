@@ -1,0 +1,31 @@
+# package directories
+backend/node_modules
+backend/jspm_packages
+
+# Serverless directories
+backend/.serverless
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+
+frontend/book-store/node_modules
+frontend/book-store/.pnp
+frontend/book-store/.pnp.js
+
+# testing
+frontend/book-store/coverage
+
+# production
+frontend/book-store/build
+
+# misc
+frontend/book-store/.DS_Store
+frontend/book-store/.env.local
+frontend/book-store/.env.development.local
+frontend/book-store/.env.test.local
+frontend/book-store/.env.production.local
+
+frontend/book-store/npm-debug.log*
+frontend/book-store/yarn-debug.log*
+frontend/book-store/yarn-error.log*

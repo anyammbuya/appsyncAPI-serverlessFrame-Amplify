@@ -1,0 +1,45 @@
+service: sls-appsync-demo
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: dev
+  region: us-east-1
+
+plugins:
+   - serverless-appsync-plugin
+
+custom:
+  appSync:
+    name: youtubeAppSyncApi
+    schema: schema.graphql
+    authenticationType: AMAZON_COGNITO_USER_POOLS
+    additionalAuthenticationProviders:
+      - authenticationType: AWS_IAM
+    userPoolConfig:
+      awsRegion: us-east-1
+      defaultAction: ALLOW
+      userPoolId: !Ref cognitoUserPool
+    mappingTemplatesLocation: mapping-templates # Mapping templates for request sent to API and responds from the datasource back to the API
+    mappingTemplates:
+      - type: Query 
+        field: getBookById
+        dataSource: booksTable
+      - type: Query 
+        field: listBooks
+        dataSource: booksTable
+      - type: Mutation 
+        field: createBook
+        dataSource: booksTable
+    dataSources:
+      - type: AMAZON_DYNAMODB
+        name: booksTable
+        config: 
+          tableName: !Ref booksTable
+
+resources:
+  Resources:
+    ${file(resources.yml)}
+ 
