@@ -9,7 +9,7 @@ AppSync API
 DynamoDB is the GraphQL API datasource
 
 
-![appsync](appsync.png)
+![appsync](appsync1.png)
 
 
 ## What are the resources used in this architecture?
