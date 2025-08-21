@@ -9,6 +9,9 @@ AppSync API
 DynamoDB is the GraphQL API datasource
 
 
+![appsync](appsync.png)
+
+
 ## What are the resources used in this architecture?
 
 Cognito
